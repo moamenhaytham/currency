@@ -16,14 +16,6 @@
     --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-/* إعادة ضبط بسيطة لضمان عدم وجود هوامش خارجية على HTML/Body */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* تأكد من أن الـ html و body يأخذان كامل ارتفاع الشاشة */
-    overflow-x: hidden; /* إخفاء أي تمرير أفقي محتمل */
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -34,13 +26,13 @@ body {
     font-family: 'Cairo', sans-serif;
     background: var(--background);
     color: var(--text);
-    /* min-height: 100vh; تم إزالة min-height من هنا واستخدام height على html, body */
+    min-height: 100vh;
     display: flex; /* اجعل الـ body حاوية flexbox */
     flex-direction: column; /* ترتيب العناصر عموديا */
+    /* تمت إزالة justify-content: center; و padding: 2rem 0; من هنا */
     align-items: center; /* توسيط المحتوى أفقياً داخل الـ body */
     position: relative;
-    /* overflow-x: hidden; تم نقله إلى html, body */
-    /* padding: 2rem 0; تم نقله إلى .main-wrapper */
+    overflow-x: hidden; /* إخفاء شريط التمرير الأفقي */
 }
 
 /* العنصر الجديد main-wrapper لتصحيح التمرير العمودي */
@@ -52,8 +44,6 @@ body {
     justify-content: center; /* توسيط المحتوى عمودياً داخل الـ main-wrapper */
     width: 100%; /* تأكد من أنه يمتد بعرض كامل */
     padding: 2rem 0; /* تطبيق المسافات البادئة الرأسية هنا بدلاً من الـ body */
-    overflow-y: auto; /* السماح بالتمرير داخل main-wrapper إذا كان المحتوى أطول من الشاشة */
-    box-sizing: border-box; /* لضمان أن padding لا يسبب تمريرًا غير مرغوب فيه */
 }
 
 /* خلفية متحركة أنيقة */
@@ -303,11 +293,11 @@ body::before {
 /* تحسينات الاستجابة */
 @media (max-width: 480px) {
     .main-wrapper { /* تعديل المسافات البادئة للـ wrapper على الشاشات الصغيرة */
-        padding: 1rem; /* تقليل المسافات البادئة بشكل عام */
+        padding: 1rem 0; 
     }
 
     .converter-container {
-        margin: 0; /* إزالة الهوامش الجانبية للسماح بالـ padding من الـ wrapper */
+        margin: 0.5rem; /* تعديل الهوامش الجانبية لضمان عدم وجود تمرير أفقي */
         padding: 1.5rem 1rem; /* تقليل المسافات البادئة الداخلية */
     }
     
@@ -322,18 +312,8 @@ body::before {
         padding: 0.75rem;
     }
     
-    .amount-input { /* تقليل حجم الخط لتناسب الشاشات الصغيرة جداً */
-        font-size: 1.1rem;
-    }
-
     .currency-select {
         min-width: unset;
-        font-size: 0.85rem; /* تقليل حجم الخط في القائمة المنسدلة */
-        padding: 0.6rem 0.8rem; /* تقليل المسافات البادئة الداخلية */
-    }
-
-    .result-rate { /* تقليل حجم الخط في سعر الصرف */
-        font-size: 1.75rem;
     }
 
     .footer { /* تعديل هامش الفوتر على الشاشات الصغيرة */
