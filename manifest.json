@@ -2,7 +2,7 @@
   "name": "Currency Converter",
   "short_name": "Converter",
   "description": "Real-time currency converter with live exchange rates.",
-  "start_url": "/currency-converter.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#6366f1",
