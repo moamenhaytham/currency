@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"> <!-- تم تغيير اللغة والاتجاه لتناسب المحتوى الإنجليزي -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    
+    <!-- ربط بملف Favicon (أيقونة التبويب) -->
+    <link rel="icon" href="/icons/favicon.png" type="image/png" sizes="32x32"> 
+    
+    <!-- ربط بملف Manifest.json لخاصية PWA -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- أيقونة الشاشة الرئيسية لأجهزة Apple (iOS) -->
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Converter">
+    
+    <!-- لون شريط العنوان على الأجهزة المحمولة -->
+    <meta name="theme-color" content="#6366f1">
+
+    <!-- ربط بملف الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ربط بملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="converter-container fade-in">
+        <h1 class="title">💱 Currency Converter</h1>
+        
+        <div class="currency-group">
+            <label class="currency-label">From Currency</label>
+            <div class="input-container">
+                <input 
+                    type="number" 
+                    class="amount-input" 
+                    id="fromAmount" 
+                    placeholder="Enter amount" 
+                    value="1"
+                    min="0" 
+                    step="0.01"
+                >
+                <select class="currency-select" id="fromCurrency">
+                    <option value="USD">🇺🇸 USD</option>
+                    <option value="EUR">🇪🇺 EUR</option>
+                    <option value="SAR">🇸🇦 SAR</option>
+                    <option value="AED">🇦🇪 AED</option>
+                    <option value="EGP">🇪🇬 EGP</option>
+                    <option value="GBP">🇬🇧 GBP</option>
+                    <option value="JPY">🇯🇵 JPY</option>
+                    <option value="CAD">🇨🇦 CAD</option>
+                    <option value="AUD">🇦🇺 AUD</option>
+                    <option value="CHF">🇨🇭 CHF</option>
+                    <option value="CNY">🇨🇳 CNY</option>
+                    <option value="INR">🇮🇳 INR</option>
+                    <option value="KRW">🇰🇷 KRW</option>
+                    <option value="SGD">🇸🇬 SGD</option>
+                    <option value="HKD">🇭🇰 HKD</option>
+                    <option value="NOK">🇳🇴 NOK</option>
+                    <option value="SEK">🇸🇪 SEK</option>
+                    <option value="DKK">🇩🇰 DKK</option>
+                    <option value="PLN">🇵🇱 PLN</option>
+                    <option value="CZK">🇨🇿 CZK</option>
+                    <option value="HUF">🇭🇺 HUF</option>
+                    <option value="RON">🇷🇴 RON</option>
+                    <option value="BGN">🇧🇬 BGN</option>
+                    <option value="HRK">🇭🇷 HRK</option>
+                    <option value="RUB">🇷🇺 RUB</option>
+                    <option value="TRY">🇹🇷 TRY</option>
+                    <option value="BRL">🇧🇷 BRL</option>
+                    <option value="MXN">🇲🇽 MXN</option>
+                    <option value="ARS">🇦🇷 ARS</option>
+                    <option value="CLP">🇨🇱 CLP</option>
+                    <option value="COP">🇨🇴 COP</option>
+                    <option value="PEN">🇵🇪 PEN</option>
+                    <option value="UYU">🇺🇾 UYU</option>
+                    <option value="ZAR">🇿🇦 ZAR</option>
+                    <option value="NGN">🇳🇬 NGN</option>
+                    <option value="GHS">🇬🇭 GHS</option>
+                    <option value="KES">🇰🇪 KES</option>
+                    <option value="UGX">🇺🇬 UGX</option>
+                    <option value="TZS">🇹🇿 TZS</option>
+                    <option value="ETB">🇪🇹 ETB</option>
+                    <option value="MAD">🇲🇦 MAD</option>
+                    <option value="TND">🇹🇳 TND</option>
+                    <option value="DZD">🇩🇿 DZD</option>
+                    <option value="LYD">🇱🇾 LYD</option>
+                    <option value="SDG">🇸🇩 SDG</option>
+                    <option value="JOD">🇯🇴 JOD</option>
+                    <option value="LBP">🇱🇧 LBP</option>
+                    <option value="SYP">🇸🇾 SYP</option>
+                    <option value="IQD">🇮🇶 IQD</option>
+                    <option value="KWD">🇰🇼 KWD</option>
+                    <option value="BHD">🇧🇭 BHD</option>
+                    <option value="QAR">🇶🇦 QAR</option>
+                    <option value="OMR">🇴🇲 OMR</option>
+                    <option value="YER">🇾🇪 YER</option>
+                    <option value="AFN">🇦🇫 AFN</option>
+                    <option value="PKR">🇵🇰 PKR</option>
+                    <option value="BDT">🇧🇩 BDT</option>
+                    <option value="LKR">🇱🇰 LKR</option>
+                    <option value="NPR">🇳🇵 NPR</option>
+                    <option value="MVR">🇲🇻 MVR</option>
+                    <option value="THB">🇹🇭 THB</option>
+                    <option value="VND">🇻🇳 VND</option>
+                    <option value="LAK">🇱🇦 LAK</option>
+                    <option value="KHR">🇰🇭 KHR</option>
+                    <option value="MMK">🇲🇲 MMK</option>
+                    <option value="IDR">🇮🇩 IDR</option>
+                    <option value="MYR">🇲🇾 MYR</option>
+                    <option value="PHP">🇵🇭 PHP</option>
+                    <option value="TWD">🇹🇼 TWD</option>
+                    <option value="NZD">🇳🇿 NZD</option>
+                    <option value="FJD">🇫🇯 FJD</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="swap-container">
+            <button class="swap-btn" id="swapBtn">
+                <svg class="swap-icon" viewBox="0 0 24 24">
+                    <path d="M7.5 21L3 16.5l4.5-4.5 1.06 1.06L6.12 15.5H18v2H6.12l2.44 2.44L7.5 21zm9-18L21 7.5 16.5 12l-1.06-1.06L17.88 8.5H6v-2h11.88l-2.44-2.44L16.5 3z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="currency-group">
+            <label class="currency-label">To Currency</label>
+            <div class="input-container">
+                <input 
+                    type="number" 
+                    class="amount-input" 
+                    id="toAmount" 
+                    placeholder="Result"
+                    readonly
+                >
+                <select class="currency-select" id="toCurrency">
+                    <option value="EGP">🇪🇬 EGP</option> <!-- Default to EGP -->
+                    <option value="SAR">🇸🇦 SAR</option>
+                    <option value="USD">🇺🇸 USD</option>
+                    <option value="EUR">🇪🇺 EUR</option>
+                    <option value="AED">🇦🇪 AED</option>
+                    <option value="GBP">🇬🇧 GBP</option>
+                    <option value="JPY">🇯🇵 JPY</option>
+                    <option value="CAD">🇨🇦 CAD</option>
+                    <option value="AUD">🇦🇺 AUD</option>
+                    <option value="CHF">🇨🇭 CHF</option>
+                    <option value="CNY">🇨🇳 CNY</option>
+                    <option value="INR">🇮🇳 INR</option>
+                    <option value="KRW">🇰🇷 KRW</option>
+                    <option value="SGD">🇸🇬 SGD</option>
+                    <option value="HKD">🇭🇰 HKD</option>
+                    <option value="NOK">🇳🇴 NOK</option>
+                    <option value="SEK">🇸🇪 SEK</option>
+                    <option value="DKK">🇩🇰 DKK</option>
+                    <option value="PLN">🇵🇱 PLN</option>
+                    <option value="CZK">🇨🇿 CZK</option>
+                    <option value="HUF">🇭🇺 HUF</option>
+                    <option value="RON">🇷🇴 RON</option>
+                    <option value="BGN">🇧🇬 BGN</option>
+                    <option value="HRK">🇭🇷 HRK</option>
+                    <option value="RUB">🇷🇺 RUB</option>
+                    <option value="TRY">🇹🇷 TRY</option>
+                    <option value="BRL">🇧🇷 BRL</option>
+                    <option value="MXN">🇲🇽 MXN</option>
+                    <option value="ARS">🇦🇷 ARS</option>
+                    <option value="CLP">🇨🇱 CLP</option>
+                    <option value="COP">🇨🇴 COP</option>
+                    <option value="PEN">🇵🇪 PEN</option>
+                    <option value="UYU">🇺🇾 UYU</option>
+                    <option value="ZAR">🇿🇦 ZAR</option>
+                    <option value="NGN">🇳🇬 NGN</option>
+                    <option value="GHS">🇬🇭 GHS</option>
+                    <option value="KES">🇰🇪 KES</option>
+                    <option value="UGX">🇺🇬 UGX</option>
+                    <option value="TZS">🇹🇿 TZS</option>
+                    <option value="ETB">🇪🇹 ETB</option>
+                    <option value="MAD">🇲🇦 MAD</option>
+                    <option value="TND">🇹🇳 TND</option>
+                    <option value="DZD">🇩🇿 DZD</option>
+                    <option value="LYD">🇱🇾 LYD</option>
+                    <option value="SDG">🇸🇩 SDG</option>
+                    <option value="JOD">🇯🇴 JOD</option>
+                    <option value="LBP">🇱🇧 LBP</option>
+                    <option value="SYP">🇸🇾 SYP</option>
+                    <option value="IQD">🇮🇶 IQD</option>
+                    <option value="KWD">🇰🇼 KWD</option>
+                    <option value="BHD">🇧🇭 BHD</option>
+                    <option value="QAR">🇶🇦 QAR</option>
+                    <option value="OMR">🇴🇲 OMR</option>
+                    <option value="YER">🇾🇪 YER</option>
+                    <option value="AFN">🇦🇫 AFN</option>
+                    <option value="PKR">🇵🇰 PKR</option>
+                    <option value="BDT">🇧🇩 BDT</option>
+                    <option value="LKR">🇱🇰 LKR</option>
+                    <option value="NPR">🇳🇵 NPR</option>
+                    <option value="MVR">🇲🇻 MVR</option>
+                    <option value="THB">🇹🇭 THB</option>
+                    <option value="VND">🇻🇳 VND</option>
+                    <option value="LAK">🇱🇦 LAK</option>
+                    <option value="KHR">🇰🇭 KHR</option>
+                    <option value="MMK">🇲🇲 MMK</option>
+                    <option value="IDR">🇮🇩 IDR</option>
+                    <option value="MYR">🇲🇾 MYR</option>
+                    <option value="PHP">🇵🇭 PHP</option>
+                    <option value="TWD">🇹🇼 TWD</option>
+                    <option value="NZD">🇳🇿 NZD</option>
+                    <option value="FJD">🇫🇯 FJD</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="result-container">
+            <div class="result-label">Exchange Rate</div>
+            <div class="result-rate" id="resultRate">
+                <span class="loading-spinner"></span>
+            </div>
+            <div class="result-info" id="resultInfo">Fetching latest exchange rates...</div>
+            <div class="next-update-countdown" id="nextUpdateCountdown"></div>
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Copyright Moamen Haytham. All rights reserved.
+        </div>
+        
+    </div>
+
+    <!-- ربط بملف JavaScript الخارجي -->
+    <script src="script.js"></script>
+
+    <!-- تسجيل Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
